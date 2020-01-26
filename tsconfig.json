@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@layer-navigator/core": ["./packages/core/src"],
+      "@layer-navigator/react-router": ["./packages/react-router/src"]
+    }
+  }
+}
