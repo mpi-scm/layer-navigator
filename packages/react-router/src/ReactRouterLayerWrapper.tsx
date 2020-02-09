@@ -1,6 +1,6 @@
 import React, { FC, useContext, useMemo, useEffect } from 'react';
 import { useRouteMatch, matchPath, useHistory } from 'react-router-dom';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/isEqual';
 
 import { LayerContext, useLayerNavigator } from '@layer-navigator/core';
 
