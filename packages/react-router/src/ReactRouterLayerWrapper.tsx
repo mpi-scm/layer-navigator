@@ -1,10 +1,9 @@
 import React, { FC, useContext, useMemo, useEffect } from 'react';
 import { useRouteMatch, matchPath, useHistory } from 'react-router-dom';
-import isEqual from 'lodash/isEqual';
-
 import { LayerContext, useLayerNavigator } from '@layer-navigator/core';
 
 import { usePrevious } from 'utils/usePrevious';
+import { isEqualMatch } from 'utils/isEqualMatch';
 import { LayerMatchContext } from './LayerMatchContext';
 import { LayerMatches } from './LayerMatches';
 
@@ -43,7 +42,7 @@ export const ReactRouterLayerWrapper: FC = ({ children }) => {
   );
 
   useEffect(() => {
-    if (key && !isEqual(match, prevMatch)) {
+    if (key && (!prevMatch || !isEqualMatch(match, prevMatch))) {
       updateLayer(key, v => ({ ...v, match }));
     }
   }, [updateLayer, match, prevMatch, key]);
